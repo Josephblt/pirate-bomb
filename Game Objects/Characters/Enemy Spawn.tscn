@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/Characters/Spawn Posters/Captain Poster.png" type="Texture" id=7]
 
 [node name="Enemy Spawn" type="Node2D"]
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="Bold Pirate Poster" type="Sprite" parent="."]

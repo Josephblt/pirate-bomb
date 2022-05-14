@@ -1,0 +1,35 @@
+*Background          0
+
+*Door                1
+Candles             1
+Window              1
+*Platforms           1
+
+*Chain Plate         2
+
+*Chain Link (Big)    3
+
+*Chain Anchor        4
+*Chain Link (Small)  4
+
+*Props               5
+
+*Particles           6
+
+*Player              7
+
+Cannon              8
+
+Cannon Ball         9
+*Bomb                9
+
+*Explosion           10
+
+Heart               11
+
+Candle Light        12
+Window Light        12
+
+Foreground          13
+Dialogue            14agnu
+

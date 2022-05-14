@@ -20,8 +20,7 @@ export var walk_strength = 150
 
 onready var camera = $"Camera"
 onready var collision_shape = $"Collision Shape"
-onready var left_foot = $"Collision Shape/Left Foot"
-onready var right_foot = $"Collision Shape/Right Foot"
+onready var platform_detector = $"Platform Detector"
 onready var sprite = $"Animated Sprite"
 
 var acceleration
@@ -32,6 +31,7 @@ var inertia = 5000
 var life = 3
 var move_strength = 0
 var motion = Vector2.ZERO
+var on_platform = false
 
 
 func _ready():
@@ -40,19 +40,10 @@ func _ready():
 	LayersUtil.activate_collision(self, LayersUtil.FOREGROUND)
 	LayersUtil.activate_collision(self, LayersUtil.PLATFORMS_TOP)
 	
-	LayersUtil.clear_collisions(left_foot)
-	LayersUtil.activate_collision(left_foot, LayersUtil.FOREGROUND)
-	LayersUtil.activate_collision(left_foot, LayersUtil.PLATFORMS_TOP)
-	
-	LayersUtil.clear_collisions(right_foot)
-	LayersUtil.activate_collision(right_foot, LayersUtil.FOREGROUND)
-	LayersUtil.activate_collision(right_foot, LayersUtil.PLATFORMS_TOP)
+	LayersUtil.activate_collision(platform_detector, LayersUtil.PLATFORMS_TOP)
 
 
 func _process(_delta):
-	if Input.is_action_just_released("player_zoom_out"):
-		camera.make_current()
-	
 	if flip:
 		if is_going_left():
 			sprite.flip_h = true
@@ -87,16 +78,7 @@ func is_going_right():
 
 
 func is_on_platform():
-	var collider_left = left_foot.get_collider()
-	var collider_right = right_foot.get_collider()
-
-	if !collider_left and !collider_right:
-		return false
-
-	var left = !collider_left or LayersUtil.is_in_layer(collider_left, LayersUtil.PLATFORMS_TOP)
-	var right = !collider_right or LayersUtil.is_in_layer(collider_right, LayersUtil.PLATFORMS_TOP)
-	return left and right
-
+	return on_platform
 
 func is_running():
 	return move_strength == run_strength
@@ -118,6 +100,14 @@ func set_air_accel_decel():
 func set_ground_accel_decel():
 	acceleration = ground_acceleration
 	deceleration = ground_deceleration
+
+
+func set_drop_enabled():
+	LayersUtil.deactivate_collision(self, LayersUtil.PLATFORMS_TOP)
+
+
+func set_drop_disabled():
+	LayersUtil.activate_collision(self, LayersUtil.PLATFORMS_TOP)
 
 
 func set_flip_enabled():
@@ -148,17 +138,9 @@ func decelerate():
 	motion.x = lerp(motion.x, 0, deceleration)
 
 
-func drop():
-	LayersUtil.deactivate_collision(self, LayersUtil.PLATFORMS_TOP)
-
-
-func fall():
-	LayersUtil.activate_collision(self, LayersUtil.PLATFORMS_TOP)
-
-
-func hit(impact_vector, damage):
-	motion.x += impact_vector.x
-	motion.y += impact_vector.y
+func hit(impact_vector, impulse, damage):
+	motion.x += impact_vector.x * impulse * 2.5
+	motion.y += impact_vector.y * impulse * 2.5
 	life -= damage
 
 
@@ -166,9 +148,9 @@ func jump():
 	motion.y = - jump_strength
 
 
-func move_left(multiplier = -1):
+func move_left(multiplier = 1):
 	set_flip_enabled()
-	motion.x = lerp(motion.x, move_strength * multiplier, acceleration)
+	motion.x = lerp(motion.x, move_strength * -multiplier, acceleration)
 	motion.x = min(motion.x, - (move_strength * acceleration))
 
 
@@ -176,3 +158,13 @@ func move_right(multiplier = 1):
 	set_flip_enabled()
 	motion.x = lerp(motion.x, move_strength * multiplier, acceleration)
 	motion.x = max(motion.x, move_strength * acceleration)
+
+
+func _on_platform_entered(body):
+	if LayersUtil.is_in_layer(body, LayersUtil.PLATFORMS_TOP):
+		on_platform = true
+
+
+func _on_platform_exited(body):
+	if LayersUtil.is_in_layer(body, LayersUtil.PLATFORMS_TOP):
+		on_platform = false

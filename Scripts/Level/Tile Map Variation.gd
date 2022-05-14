@@ -10,6 +10,7 @@ var variations = []
 
 
 func _ready():
+	randomize()
 	set_flip_h_map()
 	set_position_map()
 	set_variations()

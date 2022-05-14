@@ -10,15 +10,10 @@ func _ready():
 	LayersUtil.activate_collision(self, LayersUtil.PROPS)
 
 
-func _integrate_forces(_state):
-	pass
-#	if(state.get_contact_count() > 0):
-#		print("INTEGRATE FORCES: " + str(state.get_contact_collider(0)))
-
-
 func _process(_delta):
 	if hit_detector.is_hit_detected():
 		var hit = hit_detector.fetch_hit()
-		var impact_position = hit[0]
-		var impact_vector = hit[1]
-		apply_impulse(impact_position, impact_vector)
+		var impact_position = hit[1]
+		var impact_vector = hit[2]
+		var impulse = hit[3]
+		apply_impulse(impact_position - position, impact_vector * impulse)

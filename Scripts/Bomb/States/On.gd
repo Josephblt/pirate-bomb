@@ -24,9 +24,10 @@ func process():
 	if hit_detector.is_hit_detected():
 		var hit = hit_detector.fetch_hit()
 		while hit:
-			var impact_vector = hit[0]
-			var damage = hit[1]
-			bomb.hit(impact_vector, damage);
+			var impact_position = hit[1]
+			var impact_vector = hit[2]
+			var impulse = hit[3]
+			bomb.hit(impact_position, impact_vector, impulse);
 			hit = hit_detector.fetch_hit()
 		exit("Warning")
 

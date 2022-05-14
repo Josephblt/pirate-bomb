@@ -18,9 +18,11 @@ func enter():
 	pick_detector.attempt_throw_away()
 	
 	var hit = hit_detector.fetch_hit()
-	var impact_vector = hit[0]
-	var damage = hit[1]
-	player.hit(impact_vector, damage);
+	var emitter_position = hit[0]
+	var impact_vector = emitter_position.direction_to(player.position)
+	var impulse = hit[3]
+	var damage = hit[4]
+	player.hit(impact_vector, impulse, damage);
 	
 	if player.is_dead():
 		player.set_flip_enabled()

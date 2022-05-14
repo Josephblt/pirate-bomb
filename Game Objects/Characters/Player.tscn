@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://Scripts/States Controller.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Characters/Player/States/Idle.gd" type="Script" id=2]
@@ -18,11 +18,12 @@
 [ext_resource path="res://Sprites/Characters/Player/Hit.png" type="Texture" id=16]
 [ext_resource path="res://Scripts/Characters/Player/States/Hit.gd" type="Script" id=17]
 [ext_resource path="res://Game Objects/Bomb/Bomb Creator.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Game Objects/Actions/Hit/Hit Detector.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Sprites/Characters/Player/Drop.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Characters/Player/Death.png" type="Texture" id=20]
 [ext_resource path="res://Scripts/Characters/Player/States/Death.gd" type="Script" id=21]
 [ext_resource path="res://Game Objects/Actions/Pick/Pick Detector.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Sprites/Characters/Player/Dead Hit.png" type="Texture" id=23]
+[ext_resource path="res://Game Objects/Actions/Hit/Hit Detector.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Sprites/Characters/Player/Exit.png" type="Texture" id=25]
 [ext_resource path="res://Sprites/Characters/Player/Enter.png" type="Texture" id=26]
 [ext_resource path="res://Scripts/Characters/Player/States/Enter.gd" type="Script" id=27]
@@ -46,6 +47,18 @@ region = Rect2( 174, 0, 58, 58 )
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 7 )
 region = Rect2( 232, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=112]
+atlas = ExtResource( 19 )
+region = Rect2( 0, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=113]
+atlas = ExtResource( 19 )
+region = Rect2( 58, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=114]
+atlas = ExtResource( 19 )
+region = Rect2( 116, 0, 58, 58 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
@@ -466,6 +479,11 @@ animations = [ {
 "name": "Jump",
 "speed": 20.0
 }, {
+"frames": [ SubResource( 112 ), SubResource( 113 ), SubResource( 114 ) ],
+"loop": true,
+"name": "Drop",
+"speed": 20.0
+}, {
 "frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
 "name": "Idle",
@@ -550,15 +568,19 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=115]
+extents = Vector2( 12, 7.5 )
+
 [node name="Player" type="KinematicBody2D"]
-z_index = 1
+z_index = 7
+z_as_relative = false
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 6 )
 
 [node name="Animated Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 109 )
-animation = "Idle"
+animation = "Drop"
 
 [node name="Animation Player" type="AnimationPlayer" parent="."]
 anims/Destruction = SubResource( 110 )
@@ -568,6 +590,7 @@ anims/Warning = SubResource( 111 )
 position = Vector2( -1, 0 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
+process_mode = 0
 smoothing_enabled = true
 offset_h = 1.0
 offset_v = -0.25
@@ -580,23 +603,19 @@ __meta__ = {
 [node name="Collision Shape" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 20, -15, 22, 7, 22, 17, 14, 29, -10, 29, -27, 18, -27, -1, -3, -21, 13, -21 )
 
-[node name="Left Foot" type="RayCast2D" parent="Collision Shape"]
-position = Vector2( -10, 29 )
-enabled = true
-cast_to = Vector2( 0, 10 )
+[node name="Platform Detector" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 0
 
-[node name="Right Foot" type="RayCast2D" parent="Collision Shape"]
-position = Vector2( 14, 29 )
-enabled = true
-cast_to = Vector2( 0, 10 )
-collision_mask = 0
+[node name="Collision Shape" type="CollisionShape2D" parent="Platform Detector"]
+position = Vector2( 2, 36.5 )
+shape = SubResource( 115 )
 
 [node name="Bomb Creator" parent="." instance=ExtResource( 18 )]
 
-[node name="FX Creator" parent="." instance=ExtResource( 14 )]
+[node name="Hit Detector" parent="." instance=ExtResource( 24 )]
 
-[node name="Hit Detector" parent="." instance=ExtResource( 19 )]
+[node name="FX Creator" parent="." instance=ExtResource( 14 )]
 
 [node name="Pick Detector" parent="." instance=ExtResource( 22 )]
 
@@ -631,3 +650,6 @@ script = ExtResource( 11 )
 
 [node name="Move" type="Node" parent="State Controller"]
 script = ExtResource( 4 )
+
+[connection signal="body_entered" from="Platform Detector" to="." method="_on_platform_entered"]
+[connection signal="body_exited" from="Platform Detector" to="." method="_on_platform_exited"]
