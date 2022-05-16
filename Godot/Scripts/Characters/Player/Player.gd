@@ -41,6 +41,9 @@ func _ready():
 	LayersUtil.activate_collision(self, LayersUtil.PLATFORMS_TOP)
 	
 	LayersUtil.activate_collision(platform_detector, LayersUtil.PLATFORMS_TOP)
+	
+	var color = Color("#323443")
+	VisualServer.set_default_clear_color(color)
 
 
 func _process(_delta):
@@ -79,6 +82,7 @@ func is_going_right():
 
 func is_on_platform():
 	return on_platform
+
 
 func is_running():
 	return move_strength == run_strength
@@ -138,9 +142,9 @@ func decelerate():
 	motion.x = lerp(motion.x, 0, deceleration)
 
 
-func hit(impact_vector, impulse, damage):
-	motion.x += impact_vector.x * impulse * 2.5
-	motion.y += impact_vector.y * impulse * 2.5
+func hit(impact_vector, damage):
+	motion.x += impact_vector.x
+	motion.y += impact_vector.y
 	life -= damage
 
 

@@ -7,17 +7,15 @@
 [node name="Bottle Blue" type="RigidBody2D"]
 z_index = 5
 z_as_relative = false
-collision_layer = 32
-collision_mask = 38
-mass = 0.3
-can_sleep = false
+collision_layer = 0
+collision_mask = 0
+mass = 0.4
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 
 [node name="Collision Shape" type="CollisionPolygon2D" parent="."]
-position = Vector2( -1, 0.5 )
-polygon = PoolVector2Array( -3, -11, 5, -11, 5, -4, 9, -3, 9, 10, -7, 10, -7, -3, -3, -4 )
+polygon = PoolVector2Array( -4, -11, 4, -11, 4, -4, 8, -3, 8, 10, -8, 10, -8, -3, -4, -4 )
 
 [node name="Hit Detector" parent="." instance=ExtResource( 1 )]

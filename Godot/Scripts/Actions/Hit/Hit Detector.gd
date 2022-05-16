@@ -9,8 +9,8 @@ func _ready():
 	LayersUtil.activate_layer(parent, LayersUtil.HIT)
 
 
-func hit_detected(emitter_position, impact_position, impact_vector, impulse, damage):
-	detected_hits.append([emitter_position, impact_position, impact_vector, impulse, damage])
+func hit_detected(hit):
+	detected_hits.append(hit)
 
 
 func fetch_hit():

@@ -7,22 +7,19 @@ onready var player = $"../.."
 onready var sprite = $"../../Animated Sprite"
 
 var state_controller: StateController
-var _hit_completed
+var hit_completed
 
 
 func enter():
-	_hit_completed = false
+	hit_completed = false
 	sprite.connect("animation_finished", self, "_on_animation_finished")
 	player.set_air_accel_decel()
 	player.set_strong_gravity()
 	pick_detector.attempt_throw_away()
 	
 	var hit = hit_detector.fetch_hit()
-	var emitter_position = hit[0]
-	var impact_vector = emitter_position.direction_to(player.position)
-	var impulse = hit[3]
-	var damage = hit[4]
-	player.hit(impact_vector, impulse, damage);
+	var impact_vector = hit.emitter_point.direction_to(player.position)
+	player.hit(impact_vector, hit.damage);
 	
 	if player.is_dead():
 		player.set_flip_enabled()
@@ -47,7 +44,7 @@ func exit(next_state):
 func process():
 	if !player.is_dead() and hit_detector.is_hit_detected():
 		exit("Hit")
-	elif _hit_completed:
+	elif hit_completed:
 		if player.is_dead():
 			exit("Death")
 		elif player.is_on_floor():
@@ -61,4 +58,4 @@ func physics_process():
 
 
 func _on_animation_finished():
-	_hit_completed = true
+	hit_completed = true

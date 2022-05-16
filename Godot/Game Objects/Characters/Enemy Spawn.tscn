@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Sprites/Characters/Spawn Posters/Cucumber Poster.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Characters/Enemy Spawn.gd" type="Script" id=2]
-[ext_resource path="res://Game Objects/Props/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game Objects/Level/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Characters/Spawn Posters/Bold Pirate Poster.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters/Spawn Posters/Whale Poster.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Characters/Spawn Posters/Big Guy Poster.png" type="Texture" id=6]

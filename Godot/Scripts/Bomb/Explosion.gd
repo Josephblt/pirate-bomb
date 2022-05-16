@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var animation = $"Collision Shape/Animation Player"
+onready var hit_emmiter = $"Hit Emitter"
 onready var sprite = $"Animated Sprite"
 
 

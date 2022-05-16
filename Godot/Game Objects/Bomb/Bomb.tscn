@@ -12,6 +12,10 @@
 [ext_resource path="res://Game Objects/Actions/Hit/Hit Detector.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Game Objects/Actions/Pick/Pick Emitter.tscn" type="PackedScene" id=11]
 
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 176, 160 )
+
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 176, 160 )
@@ -52,20 +56,16 @@ region = Rect2( 1408, 0, 176, 160 )
 atlas = ExtResource( 9 )
 region = Rect2( 1584, 0, 176, 160 )
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 176, 160 )
-
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
-"loop": true,
-"name": "On",
-"speed": 20.0
-}, {
 "frames": [ SubResource( 1 ) ],
 "loop": false,
 "name": "Off",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "On",
 "speed": 20.0
 } ]
 

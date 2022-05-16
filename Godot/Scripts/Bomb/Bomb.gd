@@ -12,5 +12,5 @@ func destroy():
 	queue_free()
 
 
-func hit(impact_position, impact_vector, impulse):
-	apply_impulse(impact_position - position, impact_vector * impulse)
+func hit(impact_point, impact_vector):
+	apply_impulse(impact_point - position, impact_vector)

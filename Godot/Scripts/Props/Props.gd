@@ -10,10 +10,7 @@ func _ready():
 	LayersUtil.activate_collision(self, LayersUtil.PROPS)
 
 
-func _process(_delta):
-	if hit_detector.is_hit_detected():
+func _physics_process(_delta):
+	while hit_detector.is_hit_detected():
 		var hit = hit_detector.fetch_hit()
-		var impact_position = hit[1]
-		var impact_vector = hit[2]
-		var impulse = hit[3]
-		apply_impulse(impact_position - position, impact_vector * impulse)
+		apply_impulse(hit.impact_point - position, hit.impact_vector)

@@ -21,14 +21,14 @@ func exit(next_state):
 
 
 func process():
-	if hit_detector.is_hit_detected():
+	var was_hit = false
+	
+	while hit_detector.is_hit_detected():
+		was_hit = true
 		var hit = hit_detector.fetch_hit()
-		while hit:
-			var impact_position = hit[1]
-			var impact_vector = hit[2]
-			var impulse = hit[3]
-			bomb.hit(impact_position, impact_vector, impulse);
-			hit = hit_detector.fetch_hit()
+		bomb.hit(hit.impact_point, hit.impact_vector);
+
+	if was_hit:
 		exit("Warning")
 
 
