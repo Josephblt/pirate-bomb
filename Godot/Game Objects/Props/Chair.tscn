@@ -5,6 +5,7 @@
 [ext_resource path="res://Scripts/Props/Props.gd" type="Script" id=3]
 
 [node name="Chair" type="RigidBody2D"]
+light_mask = 2
 z_index = 5
 z_as_relative = false
 collision_layer = 0

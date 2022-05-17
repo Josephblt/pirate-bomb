@@ -132,6 +132,7 @@ tracks/2/keys = {
 }
 
 [node name="Explosion" type="StaticBody2D"]
+light_mask = 2
 z_index = 10
 z_as_relative = false
 script = ExtResource( 2 )

@@ -1,6 +1,8 @@
+extends KinematicBody2D
+
 class_name Player
 
-extends KinematicBody2D
+const MAX_LIFE = 3
 
 export var air_acceleration = 0.05
 export var ground_acceleration = 0.05
@@ -142,14 +144,24 @@ func decelerate():
 	motion.x = lerp(motion.x, 0, deceleration)
 
 
-func hit(impact_vector, damage):
+func hit(impact_vector):
 	motion.x += impact_vector.x
 	motion.y += impact_vector.y
-	life -= damage
+	life_decrease()
 
 
 func jump():
 	motion.y = - jump_strength
+
+
+func life_decrease():
+	if life > 0:
+		life -= 1
+
+
+func life_increase():
+	if life < MAX_LIFE:
+		life += 1
 
 
 func move_left(multiplier = 1):

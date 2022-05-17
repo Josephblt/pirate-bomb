@@ -6,6 +6,7 @@ const min_walk_speed_scale = 0.20
 const min_run_speed_scale = 1
 
 onready var bomb_creator = $"../../Bomb Creator"
+onready var collect_detector = $"../../Collect Detector"
 onready var hit_detector = $"../../Hit Detector"
 onready var fx_creator = $"../../FX Creator"
 onready var pick_detector = $"../../Pick Detector"
@@ -36,7 +37,12 @@ func process():
 			pick_detector.attempt_pick_up()
 		else:
 			pick_detector.attempt_throw_away()
-			
+		
+		if collect_detector.is_collect_detected():
+			var collectible_type = collect_detector.fetch_collected_object()
+			if collectible_type == Collect.COLLECTIBLE_TYPE.HEART:
+				player.life_increase()
+		
 		if Input.is_action_just_pressed("Player Bomb") and !pick_detector.is_carrying():
 			bomb_creator.create(player.position, player.motion)
 		
@@ -78,9 +84,9 @@ func physics_process():
 
 func _calculate_walk_multiplier():
 	var digital_multiplier = abs(Input.get_axis("Player Left", "Player Right"))
-	var analog_multiplier = Input.get_axis("Player Left (Analog)", "Player Right (Analog)")
+	var analog_multiplier = abs(Input.get_axis("Player Left (Analog)", "Player Right (Analog)"))
 	
-	if abs(analog_multiplier) > abs(digital_multiplier):
+	if analog_multiplier > digital_multiplier:
 		return analog_multiplier
 	else:
 		return digital_multiplier

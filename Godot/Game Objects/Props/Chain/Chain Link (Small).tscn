@@ -9,6 +9,7 @@
 extents = Vector2( 1, 5 )
 
 [node name="Chain Link (Small)" type="RigidBody2D"]
+light_mask = 2
 z_index = 4
 z_as_relative = false
 collision_layer = 0

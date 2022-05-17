@@ -1,6 +1,7 @@
 extends Node
 
 onready var bomb_creator = $"../../Bomb Creator"
+onready var collect_detector = $"../../Collect Detector"
 onready var fx_creator = $"../../FX Creator"
 onready var hit_detector = $"../../Hit Detector"
 onready var pick_detector = $"../../Pick Detector"
@@ -31,7 +32,12 @@ func process():
 			pick_detector.attempt_pick_up()
 		else:
 			pick_detector.attempt_throw_away()
-			
+		
+		if collect_detector.is_collect_detected():
+			var collectible_type = collect_detector.fetch_collected_object()
+			if collectible_type == Collect.COLLECTIBLE_TYPE.HEART:
+				player.life_increase()
+		
 		if Input.is_action_just_pressed("Player Bomb") and !pick_detector.is_carrying():
 			bomb_creator.create(player.position, player.motion)
 		

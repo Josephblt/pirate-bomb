@@ -36,6 +36,7 @@ animations = [ {
 } ]
 
 [node name="Run Dust" type="AnimatedSprite"]
+light_mask = 2
 z_index = 6
 z_as_relative = false
 frames = SubResource( 7 )

@@ -7,7 +7,6 @@ onready var collision_shape = $"../Collision Shape"
 onready var sprite = $"../Animated Sprite"
 
 export var impulse = 350
-export var damage = 1
 export var radius = 50
 
 var bodies = []
@@ -32,7 +31,7 @@ func _ready():
 func _broadcast_hit(body, impact_point, impact_vector):
 	var emitter_point = parent.position
 	var hit_detector = body.get_node("Hit Detector")
-	var hit = Hit.new(emitter_point, impact_point, impact_vector, damage)
+	var hit = Hit.new(emitter_point, impact_point, impact_vector)
 	hit_detector.hit_detected(hit)
 
 

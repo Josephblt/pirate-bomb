@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=2]
+[gd_scene load_steps=144 format=2]
 
 [ext_resource path="res://Scripts/States Controller.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Characters/Player/States/Idle.gd" type="Script" id=2]
@@ -27,6 +27,51 @@
 [ext_resource path="res://Sprites/Characters/Player/Exit.png" type="Texture" id=25]
 [ext_resource path="res://Sprites/Characters/Player/Enter.png" type="Texture" id=26]
 [ext_resource path="res://Scripts/Characters/Player/States/Enter.gd" type="Script" id=27]
+[ext_resource path="res://Game Objects/Actions/Collect/Collect Detector.tscn" type="PackedScene" id=28]
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 16 )
+region = Rect2( 58, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 16 )
+region = Rect2( 116, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 16 )
+region = Rect2( 174, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 16 )
+region = Rect2( 232, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 16 )
+region = Rect2( 290, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 16 )
+region = Rect2( 348, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 16 )
+region = Rect2( 406, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 16 )
+region = Rect2( 464, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 16 )
+region = Rect2( 522, 0, 58, 58 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 16 )
+region = Rect2( 580, 0, 58, 58 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 7 )
@@ -163,50 +208,6 @@ region = Rect2( 1392, 0, 58, 58 )
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 3 )
 region = Rect2( 1450, 0, 58, 58 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 16 )
-region = Rect2( 0, 0, 58, 58 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 16 )
-region = Rect2( 58, 0, 58, 58 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 16 )
-region = Rect2( 116, 0, 58, 58 )
-
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 16 )
-region = Rect2( 174, 0, 58, 58 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 16 )
-region = Rect2( 232, 0, 58, 58 )
-
-[sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 16 )
-region = Rect2( 290, 0, 58, 58 )
-
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 16 )
-region = Rect2( 348, 0, 58, 58 )
-
-[sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 16 )
-region = Rect2( 406, 0, 58, 58 )
-
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 16 )
-region = Rect2( 464, 0, 58, 58 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 16 )
-region = Rect2( 522, 0, 58, 58 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 16 )
-region = Rect2( 580, 0, 58, 58 )
 
 [sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 10 )
@@ -474,6 +475,11 @@ region = Rect2( 870, 0, 58, 58 )
 
 [sub_resource type="SpriteFrames" id=109]
 animations = [ {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 32 ), SubResource( 32 ), SubResource( 32 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ) ],
+"loop": false,
+"name": "Hit",
+"speed": 20.0
+}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": false,
 "name": "Jump",
@@ -487,11 +493,6 @@ animations = [ {
 "frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
 "name": "Idle",
-"speed": 20.0
-}, {
-"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 32 ), SubResource( 32 ), SubResource( 32 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ) ],
-"loop": false,
-"name": "Hit",
 "speed": 20.0
 }, {
 "frames": [ SubResource( 43 ), SubResource( 44 ) ],
@@ -587,6 +588,7 @@ anims/Destruction = SubResource( 110 )
 anims/Warning = SubResource( 111 )
 
 [node name="Camera" type="Camera2D" parent="."]
+light_mask = 0
 position = Vector2( -1, 0 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
@@ -613,9 +615,11 @@ shape = SubResource( 115 )
 
 [node name="Bomb Creator" parent="." instance=ExtResource( 18 )]
 
-[node name="Hit Detector" parent="." instance=ExtResource( 24 )]
+[node name="Collect Detector" parent="." instance=ExtResource( 28 )]
 
 [node name="FX Creator" parent="." instance=ExtResource( 14 )]
+
+[node name="Hit Detector" parent="." instance=ExtResource( 24 )]
 
 [node name="Pick Detector" parent="." instance=ExtResource( 22 )]
 

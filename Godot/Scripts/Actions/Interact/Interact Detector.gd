@@ -1,4 +1,4 @@
-extends Node
+ extends Node
 
 onready var parent = $".."
 

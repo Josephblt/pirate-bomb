@@ -12,7 +12,7 @@ onready var sprite = $"../Animated Sprite"
 var interact_area
 var anchor
 var parent_layer
-	var parent_mask
+var parent_mask
 
 
 func _ready():

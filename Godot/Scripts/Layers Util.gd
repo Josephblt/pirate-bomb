@@ -1,14 +1,15 @@
 extends Node
 
 const BOMBS = 0
-const FOREGROUND = 1
-const HIT = 2
-const INTERACT = 3
-const PICK = 4
-const PLATFORMS = 5
-const PLATFORMS_TOP = 6
-const PLAYER = 7
-const PROPS = 8
+const COLLECT = 1
+const FOREGROUND = 2
+const HIT = 3
+const INTERACT = 4
+const PICK = 5
+const PLATFORMS = 6
+const PLATFORMS_TOP = 7
+const PLAYER = 8
+const PROPS = 9
 
 
 func is_in_layer(element, layer_bit):

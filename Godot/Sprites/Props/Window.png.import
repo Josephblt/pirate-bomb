@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bottle Blue.png-88916fef2b3e5535c543302f608dd131.stex"
+path="res://.import/Window.png-2e0df497197476efc49d81a5952064a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Props/Bottle Blue.png"
-dest_files=[ "res://.import/Bottle Blue.png-88916fef2b3e5535c543302f608dd131.stex" ]
+source_file="res://Sprites/Props/Window.png"
+dest_files=[ "res://.import/Window.png-2e0df497197476efc49d81a5952064a4.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

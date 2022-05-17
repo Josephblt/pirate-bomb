@@ -19,7 +19,7 @@ func enter():
 	
 	var hit = hit_detector.fetch_hit()
 	var impact_vector = hit.emitter_point.direction_to(player.position)
-	player.hit(impact_vector, hit.damage);
+	player.hit(impact_vector);
 	
 	if player.is_dead():
 		player.set_flip_enabled()

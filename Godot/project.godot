@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Collect",
+"language": "GDScript",
+"path": "res://Scripts/Actions/Collect/Collect.gd"
+}, {
 "base": "AnimatedSprite",
 "class": "FX",
 "language": "GDScript",
@@ -40,6 +45,7 @@ _global_script_classes=[ {
 "path": "res://Scripts/Level/Tile Map Variation.gd"
 } ]
 _global_script_class_icons={
+"Collect": "",
 "FX": "",
 "FXCreator": "",
 "Hit": "",
@@ -69,7 +75,7 @@ shapes/collision/shape_color=Color( 0, 0.6, 0.701961, 0.352941 )
 [display]
 
 window/size/width=1280
-window/size/height=704
+window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
@@ -205,14 +211,15 @@ ui_end={
 [layer_names]
 
 2d_physics/layer_1="BOMBS"
-2d_physics/layer_2="FOREGROUND"
-2d_physics/layer_3="HIT"
-2d_physics/layer_4="INTERACT"
-2d_physics/layer_5="PICK"
-2d_physics/layer_6="PLATFORMS"
-2d_physics/layer_7="PLATFORMS_TOP"
-2d_physics/layer_8="PLAYER"
-2d_physics/layer_9="PROPS"
+2d_physics/layer_2="COLLECT"
+2d_physics/layer_3="FOREGROUND"
+2d_physics/layer_4="HIT"
+2d_physics/layer_5="INTERACT"
+2d_physics/layer_6="PICK"
+2d_physics/layer_7="PLATFORMS"
+2d_physics/layer_8="PLATFORMS_TOP"
+2d_physics/layer_9="PLAYER"
+2d_physics/layer_10="PROPS"
 
 [physics]
 
