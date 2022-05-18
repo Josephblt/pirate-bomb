@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/D-Pad/Analog Pad.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/UI/Mobile Controller/D-Pad.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/D-Pad/Analog Stick.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 60.0
+
+[node name="Mobile Controller" type="CanvasLayer"]
+
+[node name="D-Pad" type="TouchScreenButton" parent="."]
+position = Vector2( 50, 538 )
+normal = ExtResource( 1 )
+shape = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Stick" type="Sprite" parent="."]
+position = Vector2( 50, 538 )
+texture = ExtResource( 3 )
+
+[connection signal="pressed" from="D-Pad" to="D-Pad" method="_on_pressed"]
+[connection signal="released" from="D-Pad" to="D-Pad" method="_on_released"]
