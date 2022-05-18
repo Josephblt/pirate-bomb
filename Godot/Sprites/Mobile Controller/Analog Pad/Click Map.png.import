@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/Click Map.png-9b97685db6eaf5c6e0cf02199b89329d.res"
+
+[deps]
+
+source_file="res://Sprites/Mobile Controller/Analog Pad/Click Map.png"
+dest_files=[ "res://.import/Click Map.png-9b97685db6eaf5c6e0cf02199b89329d.res" ]
+
+[params]
+
+create_from=0
+threshold=0.0
