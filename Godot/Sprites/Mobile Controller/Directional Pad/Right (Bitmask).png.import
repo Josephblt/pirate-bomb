@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/Right (Bitmask).png-cc36973a4eab5e0f1bd341e56d9f284e.res"
+
+[deps]
+
+source_file="res://Sprites/Mobile Controller/Directional Pad/Right (Bitmask).png"
+dest_files=[ "res://.import/Right (Bitmask).png-cc36973a4eab5e0f1bd341e56d9f284e.res" ]
+
+[params]
+
+create_from=1
+threshold=0.0
