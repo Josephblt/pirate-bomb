@@ -67,29 +67,17 @@ func process():
 
 
 func physics_process():
-	var multiplier = 1
 	if Input.is_action_pressed("Player Walk-Run"):
-		multiplier = _calculate_walk_multiplier()
 		player.set_walk()
 	else:
 		player.set_run()
 	
 	if DPadUtil.player_move_left_pressed():
-		player.move_left(multiplier)
+		player.move_left()
 	elif DPadUtil.player_move_right_pressed():
-		player.move_right(multiplier)
+		player.move_right()
 	else:
 		player.decelerate()
-
-
-func _calculate_walk_multiplier():
-	var digital_multiplier = abs(Input.get_axis("Player Left", "Player Right"))
-	var analog_multiplier = abs(Input.get_axis("Player Left (Analog)", "Player Right (Analog)"))
-	
-	if analog_multiplier > digital_multiplier:
-		return analog_multiplier
-	else:
-		return digital_multiplier
 
 
 func _create_dust(frame):

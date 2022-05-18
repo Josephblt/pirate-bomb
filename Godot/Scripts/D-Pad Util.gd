@@ -1,6 +1,9 @@
 extends Node
 
 
+var mobile_move = Vector2.ZERO
+
+
 func player_move_pressed():
 	var horizontal = player_move_horizontal_pressed() 
 	var down = player_move_down_pressed()

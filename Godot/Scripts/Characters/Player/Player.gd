@@ -164,15 +164,15 @@ func life_increase():
 		life += 1
 
 
-func move_left(multiplier = 1):
+func move_left():
 	set_flip_enabled()
-	motion.x = lerp(motion.x, move_strength * -multiplier, acceleration)
+	motion.x = lerp(motion.x, -move_strength, acceleration)
 	motion.x = min(motion.x, - (move_strength * acceleration))
 
 
-func move_right(multiplier = 1):
+func move_right():
 	set_flip_enabled()
-	motion.x = lerp(motion.x, move_strength * multiplier, acceleration)
+	motion.x = lerp(motion.x, move_strength, acceleration)
 	motion.x = max(motion.x, move_strength * acceleration)
 
 
