@@ -58,7 +58,6 @@ _global_script_class_icons={
 
 config/name="Pirate Bomb"
 run/main_scene="res://Scenes/Test.tscn"
-run/delta_sync_after_draw=true
 
 [autoload]
 
@@ -76,8 +75,8 @@ shapes/collision/shape_color=Color( 0, 0.6, 0.701961, 0.352941 )
 
 window/size/width=1280
 window/size/height=720
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
