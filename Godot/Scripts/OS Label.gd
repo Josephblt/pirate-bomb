@@ -2,4 +2,4 @@ extends Label
 
 
 func _ready():
-	text = "TOUCHSCREEN: " + str(OS.has_touchscreen_ui_hint())
+	text = "SIZE: " + str(get_viewport().get_visible_rect().size)
