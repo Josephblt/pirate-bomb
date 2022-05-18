@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Window.png-2e0df497197476efc49d81a5952064a4.stex"
+path="res://.import/B (Normal).png-394ce2f8cba9d2a82a75a01c05585725.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Props/Window.png"
-dest_files=[ "res://.import/Window.png-2e0df497197476efc49d81a5952064a4.stex" ]
+source_file="res://Sprites/Mobile Controller/Button Pad/B (Normal).png"
+dest_files=[ "res://.import/B (Normal).png-394ce2f8cba9d2a82a75a01c05585725.stex" ]
 
 [params]
 
