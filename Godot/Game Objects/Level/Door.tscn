@@ -9,26 +9,6 @@
 [ext_resource path="res://Scripts/Props/Door/States/Closing.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Props/Door/Door.gd" type="Script" id=8]
 
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 2 )
-region = Rect2( 176, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 2 )
-region = Rect2( 352, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 2 )
-region = Rect2( 528, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 2 )
-region = Rect2( 704, 0, 176, 160 )
-
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 176, 160 )
@@ -49,6 +29,26 @@ region = Rect2( 528, 0, 176, 160 )
 atlas = ExtResource( 5 )
 region = Rect2( 704, 0, 176, 160 )
 
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 176, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 352, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 528, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 704, 0, 176, 160 )
+
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
@@ -56,19 +56,18 @@ animations = [ {
 "name": "Closed",
 "speed": 20.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ) ],
-"loop": false,
-"name": "Opening",
-"speed": 20.0
-}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": false,
 "name": "Closing",
 "speed": 20.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ) ],
+"loop": false,
+"name": "Opening",
+"speed": 20.0
 } ]
 
 [node name="Door" type="Node2D"]
-position = Vector2( -1, 0 )
 z_index = 1
 z_as_relative = false
 script = ExtResource( 8 )

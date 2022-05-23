@@ -5,6 +5,7 @@
 [ext_resource path="res://Sprites/Mobile Controller/Directional Pad/Left (Normal).png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Mobile Controller/Directional Pad/Right (Pressed).png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Mobile Controller/Button Pad/A (Normal).png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Mobile Controller/Button Pad/X (Bitmask).png" type="BitMap" id=6]
 [ext_resource path="res://Sprites/Mobile Controller/Button Pad/A (Pressed).png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Mobile Controller/Button Pad/B (Normal).png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Mobile Controller/Button Pad/X (Normal).png" type="Texture" id=9]
@@ -17,39 +18,31 @@
 [ext_resource path="res://Sprites/Mobile Controller/Directional Pad/Down (Bitmask).png" type="BitMap" id=16]
 [ext_resource path="res://Sprites/Mobile Controller/Directional Pad/Left (Bitmask).png" type="BitMap" id=17]
 [ext_resource path="res://Sprites/Mobile Controller/Directional Pad/Right (Bitmask).png" type="BitMap" id=18]
-
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 28, 94 )
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 92, 30 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 92, 30 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 28, 94 )
+[ext_resource path="res://Sprites/Mobile Controller/Button Pad/B (Bitmask).png" type="BitMap" id=19]
+[ext_resource path="res://Sprites/Mobile Controller/Button Pad/A (Bitmask).png" type="BitMap" id=20]
+[ext_resource path="res://Sprites/Mobile Controller/Button Pad/Y (Bitmask).png" type="BitMap" id=21]
 
 [node name="Mobile Controller" type="Control"]
+modulate = Color( 1, 1, 1, 0.501961 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 100.0
-margin_top = -340.0
-margin_right = -100.0
-margin_bottom = -100.0
-rect_min_size = Vector2( 1080, 240 )
+margin_left = 50.0
+margin_top = -426.0
+margin_right = -50.0
+margin_bottom = -50.0
+rect_min_size = Vector2( 1180, 376 )
 
 [node name="Directional Pad" type="Control" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -120.0
-margin_right = 240.0
-margin_bottom = 120.0
-rect_min_size = Vector2( 240, 240 )
+margin_top = -188.0
+margin_right = 376.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 376, 376 )
 
 [node name="Down" type="TouchScreenButton" parent="Directional Pad"]
-position = Vector2( -64, 136 )
+position = Vector2( 0, 188 )
 normal = ExtResource( 11 )
 pressed = ExtResource( 12 )
 bitmask = ExtResource( 16 )
@@ -58,7 +51,7 @@ action = "Player Down"
 visibility_mode = 1
 
 [node name="Left" type="TouchScreenButton" parent="Directional Pad"]
-position = Vector2( -64, 60 )
+position = Vector2( 0, 116 )
 normal = ExtResource( 3 )
 pressed = ExtResource( 1 )
 bitmask = ExtResource( 17 )
@@ -67,7 +60,7 @@ action = "Player Left"
 visibility_mode = 1
 
 [node name="Right" type="TouchScreenButton" parent="Directional Pad"]
-position = Vector2( 136, 60 )
+position = Vector2( 188, 116 )
 normal = ExtResource( 2 )
 pressed = ExtResource( 4 )
 bitmask = ExtResource( 18 )
@@ -80,47 +73,41 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -240.0
-margin_top = -120.0
-margin_bottom = 120.0
-rect_min_size = Vector2( 240, 240 )
+margin_left = -376.0
+margin_top = -188.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 376, 376 )
 
 [node name="A" type="TouchScreenButton" parent="Button Pad"]
-position = Vector2( 192, 60 )
-scale = Vector2( 2, 2 )
+position = Vector2( 264, 0 )
 normal = ExtResource( 5 )
 pressed = ExtResource( 7 )
-shape = SubResource( 8 )
+bitmask = ExtResource( 20 )
 passby_press = true
 action = "Player Bomb"
 visibility_mode = 1
 
 [node name="B" type="TouchScreenButton" parent="Button Pad"]
-position = Vector2( 64, 188 )
-scale = Vector2( 2, 2 )
+position = Vector2( 0, 256 )
 normal = ExtResource( 8 )
 pressed = ExtResource( 14 )
-shape = SubResource( 9 )
+bitmask = ExtResource( 19 )
 passby_press = true
 action = "Player Jump"
 visibility_mode = 1
 
 [node name="X" type="TouchScreenButton" parent="Button Pad"]
-position = Vector2( 64, -68 )
-scale = Vector2( 2, 2 )
 normal = ExtResource( 9 )
 pressed = ExtResource( 15 )
-shape = SubResource( 6 )
+bitmask = ExtResource( 6 )
 passby_press = true
 action = "Player Walk-Run"
 visibility_mode = 1
 
 [node name="Y" type="TouchScreenButton" parent="Button Pad"]
-position = Vector2( -64, 60 )
-scale = Vector2( 2, 2 )
 normal = ExtResource( 13 )
 pressed = ExtResource( 10 )
-shape = SubResource( 7 )
+bitmask = ExtResource( 21 )
 passby_press = true
 action = "Player Pick-Throw"
 visibility_mode = 1

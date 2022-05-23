@@ -4,42 +4,34 @@
 [ext_resource path="res://Sprites/FX/Candle Light.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 176, 160 )
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 176, 0, 176, 160 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 352, 0, 176, 160 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 528, 0, 176, 160 )
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 704, 0, 176, 160 )
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 880, 0, 176, 160 )
 
 [sub_resource type="AtlasTexture" id=7]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 1056, 0, 176, 160 )
 
 [sub_resource type="AtlasTexture" id=8]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 1232, 0, 176, 160 )
 
@@ -94,8 +86,9 @@ z_index = 1
 z_as_relative = false
 frames = SubResource( 9 )
 animation = "Flicker"
-frame = 5
+frame = 2
 playing = true
+offset = Vector2( -1, 22 )
 
 [node name="Light" type="AnimatedSprite" parent="."]
 z_index = 12
@@ -104,3 +97,4 @@ frames = SubResource( 15 )
 animation = "Flicker"
 frame = 2
 playing = true
+offset = Vector2( 0, -1 )
