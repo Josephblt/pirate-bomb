@@ -7,6 +7,7 @@ var state_controller: StateController
 var opening_completed
 
 func enter():
+	opening_completed = false
 	sprite.connect("animation_finished", self, "_on_animation_finished")
 	sprite.play("Opening")
 

@@ -75,13 +75,10 @@ script = ExtResource( 8 )
 
 [node name="Animated Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 11 )
-animation = "Closing"
-frame = 4
-playing = true
+animation = "Closed"
 
 [node name="State Controller" type="Node" parent="."]
 script = ExtResource( 1 )
-debug = false
 default_state = "Closed"
 
 [node name="Closed" type="Node" parent="State Controller"]
