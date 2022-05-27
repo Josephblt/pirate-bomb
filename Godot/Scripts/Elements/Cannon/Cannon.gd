@@ -4,6 +4,8 @@ extends Node2D
 const FIRE_TIMER_MAX_PERCENTAGE = 10
 const FIRE_TIMER_MIN_PERCENTAGE = 0
 const FIRE_TIMER_OFF_PERCENTAGE = -1
+const HORIZONTAL_OFFSET = 50
+const VERTICAL_OFFSET = -5
 
 export var fire_timer_max = 10
 export var fire_timer_min = 5
@@ -15,7 +17,7 @@ onready var cannon_ball_creator = $"Cannon Ball Creator"
 onready var interact_emmiter = $"Interact Emitter"
 onready var bar_sprite = $"Bar Sprite"
 
-var direction = Vector2.LEFT
+var direction
 var fire_timer_percentage = 10
 var fire_timer_wait_time = 0
 var interact_detector
@@ -42,7 +44,9 @@ func decrease_fire_timer():
 
 
 func fire():
-	cannon_ball_creator.create(position, direction * impulse)
+	var offset = (Vector2.UP * VERTICAL_OFFSET) 
+	offset += (direction * HORIZONTAL_OFFSET)
+	cannon_ball_creator.create(position + offset, direction * impulse)
 
 
 func interact_start(interactor):

@@ -10,7 +10,7 @@ func create(position, impulse = Vector2.ZERO):
 	var random_torque = (randi() % 500) - 250
 	
 	var cannon_ball = CannonBall.instance()
-	cannon_ball.position = position - Vector2(0, -5)
+	cannon_ball.position = position
 	cannon_ball.add_torque(random_torque)
 	cannon_ball.apply_central_impulse(impulse)
 	scene_root.add_child(cannon_ball)
