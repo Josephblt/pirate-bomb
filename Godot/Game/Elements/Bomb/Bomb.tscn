@@ -1,0 +1,177 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Scripts/States Controller.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Elements/Bomb/Bomb.gd" type="Script" id=2]
+[ext_resource path="res://Game/Actions/Hit/Hit Detector.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Elements/Bomb/States/Off.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Elements/Bomb/on.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Elements/Bomb/States/On.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/Elements/Bomb/off.png" type="Texture" id=7]
+[ext_resource path="res://Game/Elements/Bomb/Explosion Creator.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/Elements/Bomb/States/Warning.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Elements/Bomb/States/Destruction.gd" type="Script" id=10]
+[ext_resource path="res://Game/Actions/Interact/Interact Emitter.tscn" type="PackedScene" id=11]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 176, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 5 )
+region = Rect2( 352, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 528, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 704, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 880, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 1056, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 1232, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 1408, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 1584, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "On",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 1 ) ],
+"loop": false,
+"name": "Off",
+"speed": 20.0
+} ]
+
+[sub_resource type="Animation" id=13]
+length = 0.3
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animated Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.3
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=15]
+radius = 15.0
+
+[node name="Bomb" type="RigidBody2D"]
+light_mask = 2
+z_index = 9
+z_as_relative = false
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Animated Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 1 )
+z_index = 2
+frames = SubResource( 12 )
+animation = "Off"
+offset = Vector2( 0, -18 )
+
+[node name="Animation Player" type="AnimationPlayer" parent="."]
+anims/Destruction = SubResource( 13 )
+anims/Warning = SubResource( 14 )
+
+[node name="Collision Shape" type="CollisionShape2D" parent="."]
+z_index = 2
+shape = SubResource( 15 )
+
+[node name="Explosion Creator" parent="." instance=ExtResource( 8 )]
+
+[node name="Hit Detector" parent="." instance=ExtResource( 3 )]
+
+[node name="Interact Emitter" parent="." instance=ExtResource( 11 )]
+highlight_color = Color( 0.882353, 0.741176, 0.431373, 1 )
+
+[node name="State Controller" type="Node" parent="."]
+script = ExtResource( 1 )
+debug = false
+default_state = "On"
+
+[node name="Destruction" type="Node" parent="State Controller"]
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="State Controller/Destruction"]
+process_mode = 0
+wait_time = 3.0
+one_shot = true
+
+[node name="Off" type="Node" parent="State Controller"]
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="State Controller/Off"]
+process_mode = 0
+wait_time = 10.0
+one_shot = true
+
+[node name="On" type="Node" parent="State Controller"]
+script = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="State Controller/On"]
+process_mode = 0
+wait_time = 5.0
+one_shot = true
+
+[node name="Warning" type="Node" parent="State Controller"]
+script = ExtResource( 9 )
+
+[node name="Timer" type="Timer" parent="State Controller/Warning"]
+process_mode = 0
+wait_time = 3.0
+one_shot = true

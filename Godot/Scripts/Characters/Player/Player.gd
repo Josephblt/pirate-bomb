@@ -20,6 +20,9 @@ export var jump_strength = 800
 export var run_strength = 300
 export var walk_strength = 150
 
+export var throw_strength = 300
+
+onready var bomb_creator = $"Bomb Creator"
 onready var camera = $"Camera"
 onready var collision_shape = $"Collision Shape"
 onready var platform_detector = $"Platform Detector"
@@ -38,7 +41,6 @@ var on_platform = false
 
 func _ready():
 	LayersUtil.activate_layer(self, LayersUtil.PLAYER)
-	
 	LayersUtil.activate_collision(self, LayersUtil.FOREGROUND)
 	LayersUtil.activate_collision(self, LayersUtil.PLATFORMS_TOP)
 	
@@ -140,13 +142,17 @@ func set_walk():
 	move_strength = walk_strength
 
 
+func attack():
+	bomb_creator.create(position, motion)
+
+
 func decelerate():
 	motion.x = lerp(motion.x, 0, deceleration)
 
 
 func hit(impact_vector):
-	motion.x += impact_vector.x
-	motion.y += impact_vector.y
+	motion.x += impact_vector.x * 500
+	motion.y += impact_vector.y * 500
 	life_decrease()
 
 

@@ -15,15 +15,15 @@ func enter():
 	sprite.play("Enter")
 
 
-func exit(next_state):
+func process():
+	if enter_completed:
+		_exit("Idle")
+
+
+func _exit(next_state):
 	sprite.frame = 0
 	sprite.disconnect("animation_finished", self, "_on_animation_finished")
 	state_controller.change_to(next_state)
-
-
-func process():
-	if enter_completed:
-		exit("Idle")
 
 
 func _on_animation_finished():

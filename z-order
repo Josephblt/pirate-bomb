@@ -18,19 +18,20 @@ Particles          	6
 
 Player             	7
 
-Cannon              	8
+Cannon Ball         	8
+Cannon              	9
 
-Cannon Ball         	9
-Bomb               	9
+Bomb               	10
 
-Explosion          	10
+Explosion          	11
 
-Heart               	11
+Heart               	12
 
-Candle Light        	12
-Window Light        	12
+Candle Light        	13
+Window Light        	13
 
-Foreground          	13
-Dialogue            	14
+Foreground          	14
 
-Mobile Controller   	15	
+Dialogue            	15
+
+Mobile Controller   	16

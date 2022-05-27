@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game/Actions/Hit/Hit Detector.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Props/Props.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Props/Skull.png" type="Texture" id=3]
+
+[node name="Skull" type="RigidBody2D"]
+light_mask = 2
+z_index = 5
+z_as_relative = false
+collision_layer = 0
+collision_mask = 0
+mass = 0.4
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Collision Shape" type="CollisionPolygon2D" parent="."]
+position = Vector2( -0.5, -3 )
+polygon = PoolVector2Array( -7, -4, 8, -4, 10, -2, 10, 7, 6, 10, -2, 10, -9, 7, -9, -2 )
+
+[node name="Hit Detector" parent="." instance=ExtResource( 1 )]

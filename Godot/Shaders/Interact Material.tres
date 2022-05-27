@@ -3,7 +3,8 @@
 [ext_resource path="res://Shaders/Inline - Outline.shader" type="Shader" id=1]
 
 [resource]
+render_priority = 3
 shader = ExtResource( 1 )
 shader_param/line_color = Color( 1, 1, 1, 1 )
-shader_param/inline_thickness = 2.0
-shader_param/outline_thickness = 2.0
+shader_param/inline_thickness = 0.0
+shader_param/outline_thickness = 1.0

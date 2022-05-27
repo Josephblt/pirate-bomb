@@ -1,7 +1,7 @@
 extends Node
 
 onready var animation = $"../../Animation Player"
-onready var pick_detector = $"../../Pick Detector"
+onready var interact_detector = $"../../Interact Detector"
 onready var player = $"../.."
 onready var sprite = $"../../Animated Sprite"
 
@@ -12,7 +12,7 @@ func enter():
 	player.set_flip_enabled()
 	player.set_ground_accel_decel()
 	player.set_strong_gravity()
-	pick_detector.attempt_throw_away()
+	interact_detector.attempt_interact_end()
 	
 	sprite.play("Death")
 	yield(sprite, "animation_finished")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/X (Bitmask).png-8b727185e218664036f160e4e2adf779.res"
+
+[deps]
+
+source_file="res://Sprites/UI/Mobile Controller/Button Pad/X (Bitmask).png"
+dest_files=[ "res://.import/X (Bitmask).png-8b727185e218664036f160e4e2adf779.res" ]
+
+[params]
+
+create_from=1
+threshold=0.0

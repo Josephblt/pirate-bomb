@@ -9,9 +9,9 @@ enum Effects {
 }
 
 const fx_library  : Dictionary = {
-	Effects.JUMP : preload("res://Game Objects/FX/Jump.tscn"),
-	Effects.LANDING : preload("res://Game Objects/FX/Landing.tscn"),
-	Effects.RUN : preload("res://Game Objects/FX/Run.tscn"),
+	Effects.JUMP : preload("res://Game/FX/Jump.tscn"),
+	Effects.LANDING : preload("res://Game/FX/Landing.tscn"),
+	Effects.RUN : preload("res://Game/FX/Run.tscn"),
 }
 
 onready var scene_root = $"/root"

@@ -4,10 +4,8 @@ const MIN_BLAST_DISTANCE = .25
 
 onready var parent = $".."
 onready var collision_shape = $"../Collision Shape"
-onready var sprite = $"../Animated Sprite"
 
 export var impulse = 350
-export var radius = 50
 
 var bodies = []
 var hit_area

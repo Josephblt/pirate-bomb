@@ -1,11 +1,11 @@
 extends Node
 
-const BOMBS = 0
-const COLLECT = 1
-const FOREGROUND = 2
-const HIT = 3
-const INTERACT = 4
-const PICK = 5
+const BOMB = 0
+const CANNON_BALL = 1
+const COLLECT = 2
+const FOREGROUND = 3
+const HIT = 4
+const INTERACT = 5
 const PLATFORMS = 6
 const PLATFORMS_TOP = 7
 const PLAYER = 8

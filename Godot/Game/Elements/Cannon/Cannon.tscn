@@ -1,0 +1,261 @@
+[gd_scene load_steps=56 format=2]
+
+[ext_resource path="res://Scripts/States Controller.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Elements/Cannon/Fire.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Elements/Cannon/Idle.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Elements/Cannon/Off.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Elements/Cannon/Fire.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Elements/Cannon/Bar (Opening).png" type="Texture" id=6]
+[ext_resource path="res://Game/Actions/Interact/Interact Emitter.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Elements/Cannon/Cannon.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/Elements/Cannon/Bar (Charging).png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Elements/Cannon/On.gd" type="Script" id=10]
+[ext_resource path="res://Sprites/Elements/Cannon/Bar (Full).png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Elements/Cannon/Bar (Empty).png" type="Texture" id=12]
+[ext_resource path="res://Game/Elements/Cannon/Cannon Ball Creator.tscn" type="PackedScene" id=13]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 264, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 528, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 792, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 1056, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 1320, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 1584, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 1848, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 2112, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 2376, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 2640, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 2904, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 3168, 0, 264, 160 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 264, 160 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": false,
+"name": "Fire",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 20.0
+} ]
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 6 )
+region = Rect2( 352, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 6 )
+region = Rect2( 176, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 6 )
+region = Rect2( 176, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 6 )
+region = Rect2( 352, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 9 )
+region = Rect2( 176, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 9 )
+region = Rect2( 352, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 9 )
+region = Rect2( 528, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 9 )
+region = Rect2( 704, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 9 )
+region = Rect2( 880, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 9 )
+region = Rect2( 1056, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 9 )
+region = Rect2( 1232, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 9 )
+region = Rect2( 1408, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 9 )
+region = Rect2( 1584, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 9 )
+region = Rect2( 1760, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 11 )
+region = Rect2( 176, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 11 )
+region = Rect2( 352, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 12 )
+region = Rect2( 176, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 12 )
+region = Rect2( 352, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 12 )
+region = Rect2( 528, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 12 )
+region = Rect2( 704, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 12 )
+region = Rect2( 880, 0, 176, 160 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
+"loop": false,
+"name": "Close",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": false,
+"name": "Open",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"loop": false,
+"name": "Charge",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "Full",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ) ],
+"loop": true,
+"name": "Empty",
+"speed": 10.0
+} ]
+
+[node name="Cannon" type="StaticBody2D"]
+z_index = 9
+z_as_relative = false
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 8 )
+fire_timer_max = 5
+fire_timer_min = 1
+
+[node name="Animated Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 15 )
+animation = "Idle"
+
+[node name="Bar Sprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0, -15 )
+frames = SubResource( 19 )
+animation = "Open"
+
+[node name="Collision Shape" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -21, -11, -6, -12, 11, -12, 23, -1, 23, 19, 14, 26, 14, 32, -12, 32, -12, 25, -21, 25, -26, 20, -26, -6 )
+
+[node name="Interact Emitter" parent="." instance=ExtResource( 7 )]
+highlight_color = Color( 0.882353, 0.741176, 0.431373, 1 )
+
+[node name="Cannon Ball Creator" parent="." instance=ExtResource( 13 )]
+
+[node name="State Controller" type="Node" parent="."]
+script = ExtResource( 1 )
+debug = false
+default_state = "Off"
+
+[node name="Off" type="Node" parent="State Controller"]
+script = ExtResource( 4 )
+
+[node name="On" type="Node" parent="State Controller"]
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="State Controller/On"]
+
+[node name="Fire" type="Node" parent="State Controller"]
+script = ExtResource( 5 )
+
+[connection signal="animation_finished" from="Bar Sprite" to="." method="_on_bar_sprite_animation_finished"]

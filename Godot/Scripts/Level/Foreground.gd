@@ -1,9 +1,9 @@
 extends TileMapVariation
 
-const variation1 = preload("res://Sprites/Tilesets/Variations/Foreground 1.png")
-const variation2 = preload("res://Sprites/Tilesets/Variations/Foreground 2.png")
-const variation3 = preload("res://Sprites/Tilesets/Variations/Foreground 3.png")
-const variation4 = preload("res://Sprites/Tilesets/Variations/Foreground 4.png")
+const variation1 = preload("res://Sprites/Level/Variations/Foreground 1.png")
+const variation2 = preload("res://Sprites/Level/Variations/Foreground 2.png")
+const variation3 = preload("res://Sprites/Level/Variations/Foreground 3.png")
+const variation4 = preload("res://Sprites/Level/Variations/Foreground 4.png")
 
 
 func _ready():

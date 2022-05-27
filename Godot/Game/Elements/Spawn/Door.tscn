@@ -1,0 +1,93 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Scripts/Elements/Door/States/Opening.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Elements/Door/Door.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Elements/Door/States/Closing.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/States Controller.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Elements/Door/States/Closed.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Elements/Spawn/Door/Closing.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Elements/Spawn/Door/Opening.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Elements/Spawn/Door/Closed.png" type="Texture" id=8]
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 7 )
+region = Rect2( 176, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 7 )
+region = Rect2( 352, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 7 )
+region = Rect2( 528, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 7 )
+region = Rect2( 704, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 6 )
+region = Rect2( 176, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 6 )
+region = Rect2( 352, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 6 )
+region = Rect2( 528, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 6 )
+region = Rect2( 704, 0, 176, 160 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ), SubResource( 10 ) ],
+"loop": false,
+"name": "Opening",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": false,
+"name": "Closing",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "Closed",
+"speed": 20.0
+} ]
+
+[node name="Door" type="Node2D"]
+z_index = 1
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Animated Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 11 )
+animation = "Closed"
+
+[node name="State Controller" type="Node" parent="."]
+script = ExtResource( 4 )
+debug = false
+default_state = "Closed"
+
+[node name="Closed" type="Node" parent="State Controller"]
+script = ExtResource( 5 )
+
+[node name="Closing" type="Node" parent="State Controller"]
+script = ExtResource( 3 )
+
+[node name="Opening" type="Node" parent="State Controller"]
+script = ExtResource( 1 )
+
+[connection signal="animation_finished" from="Animated Sprite" to="." method="_on_animation_finished"]

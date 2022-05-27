@@ -1,6 +1,6 @@
 extends Node2D
 
-const Player = preload("res://Game Objects/Characters/Player.tscn")
+const Player = preload("res://Game/Characters/Player.tscn")
 
 export var spawn_on_start = true
 

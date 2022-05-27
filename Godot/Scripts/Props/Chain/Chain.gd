@@ -2,8 +2,8 @@ extends Node
 
 enum CHAIN_LINK_TYPE { BIG = 0, SMALL = 1}
 
-const CHAIN_LINK_BIG = preload("res://Game Objects/Props/Chain/Chain Link (Big).tscn")
-const CHAIN_LINK_SMALL = preload("res://Game Objects/Props/Chain/Chain Link (Small).tscn")
+const CHAIN_LINK_BIG = preload("res://Game/Props/Chain/Chain Link (Big).tscn")
+const CHAIN_LINK_SMALL = preload("res://Game/Props/Chain/Chain Link (Small).tscn")
 
 const MIN_LINKS = 5
 const MAX_LINKS = 25
