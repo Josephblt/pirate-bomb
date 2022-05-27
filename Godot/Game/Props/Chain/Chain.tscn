@@ -5,6 +5,8 @@
 
 [node name="Chain" type="Node2D"]
 light_mask = 2
+z_index = 2
+z_as_relative = false
 script = ExtResource( 4 )
 
 [node name="Chain Anchor Plate" parent="." instance=ExtResource( 1 )]

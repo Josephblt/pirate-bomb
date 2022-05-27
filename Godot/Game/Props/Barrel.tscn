@@ -9,7 +9,7 @@ light_mask = 0
 z_index = 5
 z_as_relative = false
 collision_layer = 0
-collision_mask = 2147483648
+collision_mask = 0
 mass = 0.6
 script = ExtResource( 3 )
 

@@ -149,7 +149,7 @@ animations = [ {
 } ]
 
 [node name="Heart" type="StaticBody2D"]
-z_index = 11
+z_index = 12
 z_as_relative = false
 collision_layer = 0
 collision_mask = 0

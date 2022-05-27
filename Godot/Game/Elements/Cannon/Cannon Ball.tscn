@@ -29,6 +29,7 @@ tracks/0/keys = {
 radius = 15.0
 
 [node name="Cannon Ball" type="RigidBody2D"]
+light_mask = 0
 z_index = 8
 z_as_relative = false
 collision_layer = 0

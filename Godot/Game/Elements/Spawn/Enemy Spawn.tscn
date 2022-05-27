@@ -10,6 +10,7 @@
 
 [node name="Enemy Spawn" type="Node2D"]
 z_index = 1
+z_as_relative = false
 script = ExtResource( 2 )
 
 [node name="Bold Pirate Poster" type="Sprite" parent="."]

@@ -107,8 +107,8 @@ tracks/0/keys = {
 radius = 15.0
 
 [node name="Bomb" type="RigidBody2D"]
-light_mask = 2
-z_index = 9
+light_mask = 0
+z_index = 10
 z_as_relative = false
 collision_layer = 0
 collision_mask = 0

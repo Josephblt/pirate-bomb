@@ -1,37 +1,42 @@
-Background         	0
+Background         		0
 
-Door               	1
-Candles            	1
-Window             	1
-Platforms          	1
+Door               		1
+Spawns				1
+Candles            		1
+Window             		1
+Platforms          		1
 
-Chain Plate        	2
+Chain Anchor Plate (Plate)    	2
 
-Chain Link (Big)   	3
+Chain Link (Big)   		3
 
-Chain Anchor       	4
-Chain Link (Small)	4
+Chain Anchor Plate (Anchor)    	4
+Chain Link (Small)		4
 
-Props              	5
+Barrel		              	5
+Bottles		              	5
+Chair		              	5
+Skull		              	5
+Table				5
 
-Particles          	6
+Particles          		6
 
-Player             	7
+Player             		7
 
-Cannon Ball         	8
-Cannon              	9
+Cannon Ball         		8
+Cannon              		9
 
-Bomb               	10
+Bomb               		10
 
-Explosion          	11
+Explosion          		11
 
-Heart               	12
+Heart               		12
 
-Candle Light        	13
-Window Light        	13
+Candle Light        		13
+Window Light        		13
 
-Foreground          	14
+Foreground          		14
 
-Dialogue            	15
+Dialogue            		15
 
-Mobile Controller   	16
+Mobile Controller   		16

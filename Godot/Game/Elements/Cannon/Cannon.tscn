@@ -14,6 +14,10 @@
 [ext_resource path="res://Sprites/Elements/Cannon/Bar (Empty).png" type="Texture" id=12]
 [ext_resource path="res://Game/Elements/Cannon/Cannon Ball Creator.tscn" type="PackedScene" id=13]
 
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 264, 160 )
+
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 264, 160 )
@@ -66,20 +70,16 @@ region = Rect2( 2904, 0, 264, 160 )
 atlas = ExtResource( 2 )
 region = Rect2( 3168, 0, 264, 160 )
 
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 264, 160 )
-
 [sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
-"loop": false,
-"name": "Fire",
-"speed": 20.0
-}, {
 "frames": [ SubResource( 14 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": false,
+"name": "Fire",
 "speed": 20.0
 } ]
 
@@ -94,6 +94,42 @@ region = Rect2( 176, 0, 176, 160 )
 [sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 12 )
+region = Rect2( 176, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 12 )
+region = Rect2( 352, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 12 )
+region = Rect2( 528, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 12 )
+region = Rect2( 704, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 12 )
+region = Rect2( 880, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 11 )
+region = Rect2( 176, 0, 176, 160 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 11 )
+region = Rect2( 352, 0, 176, 160 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 6 )
@@ -151,48 +187,22 @@ region = Rect2( 1584, 0, 176, 160 )
 atlas = ExtResource( 9 )
 region = Rect2( 1760, 0, 176, 160 )
 
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 11 )
-region = Rect2( 0, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 11 )
-region = Rect2( 176, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 11 )
-region = Rect2( 352, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 12 )
-region = Rect2( 0, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 12 )
-region = Rect2( 176, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 12 )
-region = Rect2( 352, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 12 )
-region = Rect2( 528, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 12 )
-region = Rect2( 704, 0, 176, 160 )
-
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 12 )
-region = Rect2( 880, 0, 176, 160 )
-
 [sub_resource type="SpriteFrames" id=19]
 animations = [ {
 "frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
 "loop": false,
 "name": "Close",
 "speed": 20.0
+}, {
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ) ],
+"loop": true,
+"name": "Empty",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "Full",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": false,
@@ -203,19 +213,10 @@ animations = [ {
 "loop": false,
 "name": "Charge",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
-"loop": true,
-"name": "Full",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ) ],
-"loop": true,
-"name": "Empty",
-"speed": 10.0
 } ]
 
 [node name="Cannon" type="StaticBody2D"]
+light_mask = 0
 z_index = 9
 z_as_relative = false
 collision_layer = 0

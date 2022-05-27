@@ -573,6 +573,7 @@ tracks/0/keys = {
 extents = Vector2( 12, 7.5 )
 
 [node name="Player" type="KinematicBody2D"]
+light_mask = 0
 z_index = 7
 z_as_relative = false
 collision_layer = 0
