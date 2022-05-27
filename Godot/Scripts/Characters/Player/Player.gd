@@ -151,7 +151,6 @@ func decelerate():
 
 
 func hit(impact_vector):
-	print(impact_vector)
 	motion.x += impact_vector.x * 750.0
 	motion.y += impact_vector.y * 750.0
 	life_decrease()

@@ -8,7 +8,7 @@
 extents = Vector2( 7, 7 )
 
 [node name="Chain Anchor Plate" type="StaticBody2D"]
-light_mask = 2
+light_mask = 0
 z_index = 2
 z_as_relative = false
 collision_layer = 0

@@ -43,16 +43,16 @@ position = Vector2( 1312, 208 )
 position = Vector2( -32, 208 )
 
 [node name="Chain" parent="Game" instance=ExtResource( 14 )]
-position = Vector2( 376, 128 )
+position = Vector2( 376, 96 )
 
 [node name="Chain2" parent="Game" instance=ExtResource( 14 )]
-position = Vector2( 456, 128 )
+position = Vector2( 456, 96 )
 
 [node name="Chain3" parent="Game" instance=ExtResource( 14 )]
-position = Vector2( 825, 128 )
+position = Vector2( 825, 96 )
 
 [node name="Chain4" parent="Game" instance=ExtResource( 14 )]
-position = Vector2( 905, 128 )
+position = Vector2( 905, 96 )
 
 [node name="Candle" parent="Game" instance=ExtResource( 16 )]
 position = Vector2( 736, 160 )
@@ -111,5 +111,4 @@ position = Vector2( 800, 480 )
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Mobile Controller" parent="UI" instance=ExtResource( 11 )]
-visible = false
 rect_min_size = Vector2( 0, 0 )

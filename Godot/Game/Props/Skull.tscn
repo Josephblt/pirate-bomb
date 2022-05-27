@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Props/Skull.png" type="Texture" id=3]
 
 [node name="Skull" type="RigidBody2D"]
-light_mask = 2
+light_mask = 0
 z_index = 5
 z_as_relative = false
 collision_layer = 0

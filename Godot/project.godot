@@ -68,6 +68,7 @@ DebugUtil="*res://Scripts/Debug/Debug Util.gd"
 
 [debug]
 
+settings/stdout/print_fps=true
 settings/gdscript/max_call_stack=4096
 settings/visual_script/max_call_stack=4096
 shapes/collision/shape_color=Color( 0, 0.6, 0.701961, 0.352941 )
