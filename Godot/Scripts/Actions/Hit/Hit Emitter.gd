@@ -27,7 +27,7 @@ func _ready():
 
 
 func _broadcast_hit(body, impact_point, impact_vector):
-	var emitter_point = parent.position
+	var emitter_point = parent.global_position
 	var hit_detector = body.get_node("Hit Detector")
 	var hit = Hit.new(emitter_point, impact_point, impact_vector)
 	hit_detector.hit_detected(hit)
@@ -41,11 +41,11 @@ func _calculate_impact_point(body):
 	var area_t = hit_area.global_transform
 	
 	var contacts = area_s.collide_and_get_contacts(area_t, body_s, body_t)
-	var nearest_point = body.position
-	var nearest_distance = nearest_point.distance_to(parent.position)
+	var nearest_point = body.global_position
+	var nearest_distance = nearest_point.distance_to(parent.global_position)
 	
 	for contact in contacts:
-		var distance = contact.distance_to(parent.position)
+		var distance = contact.distance_to(parent.global_position)
 		if distance < nearest_distance:
 			nearest_point = contact
 			nearest_distance = distance
@@ -54,7 +54,7 @@ func _calculate_impact_point(body):
 
 
 func _calculate_impact_vector(impact_point):
-	var impact_direction = parent.position.direction_to(impact_point)
+	var impact_direction = parent.global_position.direction_to(impact_point)
 	return impact_direction * impulse
 
 

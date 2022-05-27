@@ -1,4 +1,4 @@
-tool
+	tool
 extends Node2D
 
 const FIRE_TIMER_MAX_PERCENTAGE = 10
@@ -8,7 +8,7 @@ const FIRE_TIMER_OFF_PERCENTAGE = -1
 export var fire_timer_max = 10
 export var fire_timer_min = 5
 export var inverted = false setget _invert
-var impulse = 750.0
+var impulse = 300
 export var on = true
 
 onready var cannon_ball_creator = $"Cannon Ball Creator"
