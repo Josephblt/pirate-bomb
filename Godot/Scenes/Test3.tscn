@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Game/Level/Foreground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Level/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Elements/Spawn/Player Spawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/UI/Mobile Controller.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Game/Props/Window.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Game/UI/Health Bar.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scripts/Level/Zoom-Out.gd" type="Script" id=21]
+
+[node name="Test" type="Node"]
+
+[node name="Game" type="Node" parent="."]
+
+[node name="Level" type="Node2D" parent="Game"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Camera (Zoom-out)" type="Camera2D" parent="Game/Level"]
+offset = Vector2( 0, 3168 )
+zoom = Vector2( 9.511, 9.511 )
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource( 21 )
+
+[node name="Background" parent="Game/Level" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 131070, 0, 8, 131071, 0, 10, 65536, 0, 10, 65537, 0, 10, 65538, 0, 10, 65539, 0, 10, 65540, 0, 11, 196606, 0, 65544, 196607, 0, 131081, 131072, 0, 131081, 131073, 0, 131081, 131074, 0, 131081, 131075, 0, 131081, 131076, 0, 131083, 262142, 0, 196616, 262143, 0, 196617, 196608, 0, 196617, 196609, 0, 196617, 196610, 0, 196617, 196611, 0, 196617, 196612, 0, 196619 )
+
+[node name="Foreground" parent="Game/Level" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 65533, 0, 196608, 65534, 0, 131073, 65535, 0, 131073, 0, 0, 131073, 1, 0, 131073, 2, 0, 131073, 3, 0, 131073, 4, 0, 131073, 5, 0, 196609, 131069, 0, 65538, 131070, 0, 196610, 131071, 0, 196610, 65536, 0, 196610, 65537, 0, 196610, 65538, 0, 196610, 65539, 0, 196610, 65540, 0, 196610, 65541, 0, 65536, 196605, 0, 65538, 196606, 0, 196610, 196607, 0, 196610, 131072, 0, 196610, 131073, 0, 196610, 131074, 0, 196610, 131075, 0, 196610, 131076, 0, 196610, 131077, 0, 65536, 262141, 0, 65538, 262142, 0, 196610, 262143, 0, 196610, 196608, 0, 196610, 196609, 0, 196610, 196610, 0, 196610, 196611, 0, 196610, 196612, 0, 196610, 196613, 0, 65536, 327677, 0, 262144, 327678, 0, 1, 327679, 0, 1, 262144, 0, 1, 262145, 0, 1, 262146, 0, 1, 262147, 0, 1, 262148, 0, 1, 262149, 0, 262145 )
+
+[node name="Props" type="Node2D" parent="Game"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Window" parent="Game/Props" instance=ExtResource( 17 )]
+position = Vector2( 160, 160 )
+
+[node name="Spawners" type="Node2D" parent="Game"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player Spawn" parent="Game/Spawners" instance=ExtResource( 4 )]
+position = Vector2( -32, 208 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Mobile Controller" parent="UI" instance=ExtResource( 11 )]
+rect_min_size = Vector2( 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Health Bar" parent="UI" instance=ExtResource( 20 )]
+__meta__ = {
+"_edit_lock_": true
+}

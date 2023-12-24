@@ -1,0 +1,108 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Game/Level/Foreground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Level/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Level/Platforms.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Elements/Spawn/Player Spawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Props/Table.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/Level/Platforms Top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Game/UI/Mobile Controller.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Game/Elements/Spawn/Enemy Spawn.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Game/Props/Chair.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Game/Props/Chain/Chain.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Game/Props/Candle.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Game/Props/Window.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Game/Elements/Heart/Heart Creator.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Game/UI/Health Bar.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scripts/Level/Zoom-Out.gd" type="Script" id=21]
+
+[node name="Test" type="Node"]
+
+[node name="Game" type="Node" parent="."]
+
+[node name="Level" type="Node2D" parent="Game"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Camera (Zoom-out)" type="Camera2D" parent="Game/Level"]
+offset = Vector2( 0, 3168 )
+zoom = Vector2( 9.511, 9.511 )
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource( 21 )
+
+[node name="Background" parent="Game/Level" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 131070, 0, 8, 131071, 0, 10, 65536, 0, 10, 65537, 0, 10, 65538, 0, 10, 65539, 0, 10, 65540, 0, 10, 65541, 0, 10, 65542, 0, 10, 65543, 0, 10, 65544, 0, 10, 65545, 0, 10, 65546, 0, 10, 65547, 0, 10, 65548, 0, 10, 65549, 0, 10, 65550, 0, 10, 65551, 0, 10, 65552, 0, 10, 65553, 0, 10, 65554, 0, 10, 65555, 0, 10, 65556, 0, 10, 65557, 0, 11, 196606, 0, 65544, 196607, 0, 131081, 131072, 0, 131081, 131073, 0, 131081, 131074, 0, 131081, 131075, 0, 131081, 131076, 0, 131081, 131077, 0, 131081, 131078, 0, 131081, 131079, 0, 131081, 131080, 0, 131081, 131081, 0, 131081, 131082, 0, 131081, 131083, 0, 131081, 131084, 0, 131081, 131085, 0, 131081, 131086, 0, 131081, 131087, 0, 131081, 131088, 0, 131081, 131089, 0, 131081, 131090, 0, 131081, 131091, 0, 131081, 131092, 0, 131081, 131093, 0, 131083, 262142, 0, 196616, 262143, 0, 196617, 196608, 0, 196617, 196609, 0, 196617, 196610, 0, 196617, 196611, 0, 196617, 196612, 0, 196617, 196613, 0, 196617, 196614, 0, 196617, 196615, 0, 196617, 196616, 0, 196617, 196617, 0, 196617, 196618, 0, 196617, 196619, 0, 196617, 196620, 0, 196617, 196621, 0, 196617, 196622, 0, 196617, 196623, 0, 196617, 196624, 0, 196617, 196625, 0, 196617, 196626, 0, 196617, 196627, 0, 196617, 196628, 0, 196617, 196629, 0, 196619 )
+
+[node name="Foreground" parent="Game/Level" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 65533, 0, 196608, 65534, 0, 131073, 65535, 0, 131073, 0, 0, 131073, 1, 0, 131073, 2, 0, 131073, 3, 0, 131073, 4, 0, 131073, 5, 0, 131073, 6, 0, 131073, 7, 0, 131073, 8, 0, 131073, 9, 0, 131073, 10, 0, 131073, 11, 0, 131073, 12, 0, 131073, 13, 0, 131073, 14, 0, 131073, 15, 0, 131073, 16, 0, 131073, 17, 0, 131073, 18, 0, 131073, 19, 0, 131073, 20, 0, 131073, 21, 0, 131073, 22, 0, 196609, 131069, 0, 65538, 131070, 0, 196610, 131071, 0, 196610, 65536, 0, 196610, 65537, 0, 196610, 65538, 0, 196610, 65539, 0, 196610, 65540, 0, 196610, 65541, 0, 196610, 65542, 0, 196610, 65543, 0, 196610, 65544, 0, 196610, 65545, 0, 196610, 65546, 0, 196610, 65547, 0, 196610, 65548, 0, 196610, 65549, 0, 196610, 65550, 0, 196610, 65551, 0, 196610, 65552, 0, 196610, 65553, 0, 196610, 65554, 0, 196610, 65555, 0, 196610, 65556, 0, 196610, 65557, 0, 196610, 65558, 0, 65536, 196605, 0, 65538, 196606, 0, 196610, 196607, 0, 196610, 131072, 0, 196610, 131073, 0, 196610, 131074, 0, 196610, 131075, 0, 196610, 131076, 0, 196610, 131077, 0, 196610, 131078, 0, 196610, 131079, 0, 196610, 131080, 0, 196610, 131081, 0, 196610, 131082, 0, 196610, 131083, 0, 196610, 131084, 0, 196610, 131085, 0, 196610, 131086, 0, 196610, 131087, 0, 196610, 131088, 0, 196610, 131089, 0, 196610, 131090, 0, 196610, 131091, 0, 196610, 131092, 0, 196610, 131093, 0, 196610, 131094, 0, 65536, 262141, 0, 65538, 262142, 0, 196610, 262143, 0, 196610, 196608, 0, 196610, 196609, 0, 196610, 196610, 0, 196610, 196611, 0, 196610, 196612, 0, 196610, 196613, 0, 196610, 196614, 0, 196610, 196615, 0, 196610, 196616, 0, 196610, 196617, 0, 196610, 196618, 0, 196610, 196619, 0, 196610, 196620, 0, 196610, 196621, 0, 196610, 196622, 0, 196610, 196623, 0, 196610, 196624, 0, 196610, 196625, 0, 196610, 196626, 0, 196610, 196627, 0, 196610, 196628, 0, 196610, 196629, 0, 196610, 196630, 0, 65536, 327677, 0, 262144, 327678, 0, 1, 327679, 0, 1, 262144, 0, 1, 262145, 0, 1, 262146, 0, 1, 262147, 0, 1, 262148, 0, 1, 262149, 0, 1, 262150, 0, 1, 262151, 0, 1, 262152, 0, 1, 262153, 0, 1, 262154, 0, 1, 262155, 0, 1, 262156, 0, 1, 262157, 0, 1, 262158, 0, 1, 262159, 0, 1, 262160, 0, 1, 262161, 0, 1, 262162, 0, 1, 262163, 0, 1, 262164, 0, 1, 262165, 0, 1, 262166, 0, 262145 )
+
+[node name="Platform" parent="Game/Level" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 12, 4, 0, 131076, 4, 0, 131077, 1, 0, 131078, 2, 0, 196612, 4, 0, 196613, 1, 0, 196614, 2, 0 )
+
+[node name="Platform Top" parent="Game/Level" instance=ExtResource( 7 )]
+tile_data = PoolIntArray( 131076, 4, 0, 131077, 1, 0, 131078, 2, 0, 196612, 4, 0, 196613, 1, 0, 196614, 2, 0 )
+
+[node name="Props" type="Node2D" parent="Game"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chain" parent="Game/Props" instance=ExtResource( 14 )]
+position = Vector2( 480, 96 )
+
+[node name="Chain2" parent="Game/Props" instance=ExtResource( 14 )]
+position = Vector2( 544, 96 )
+
+[node name="Chain3" parent="Game/Props" instance=ExtResource( 14 )]
+position = Vector2( 864, 96 )
+
+[node name="Chain4" parent="Game/Props" instance=ExtResource( 14 )]
+position = Vector2( 928, 96 )
+
+[node name="Candle" parent="Game/Props" instance=ExtResource( 16 )]
+position = Vector2( 736, 160 )
+
+[node name="Window" parent="Game/Props" instance=ExtResource( 17 )]
+position = Vector2( 160, 160 )
+
+[node name="Chair" parent="Game/Props" instance=ExtResource( 13 )]
+position = Vector2( 583, 228 )
+
+[node name="Chair2" parent="Game/Props" instance=ExtResource( 13 )]
+position = Vector2( 697, 228 )
+inverted = true
+
+[node name="Table" parent="Game/Props" instance=ExtResource( 5 )]
+position = Vector2( 640, 240 )
+
+[node name="Spawners" type="Node2D" parent="Game"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Enemy Spawn" parent="Game/Spawners" instance=ExtResource( 12 )]
+position = Vector2( 1312, 208 )
+
+[node name="Player Spawn" parent="Game/Spawners" instance=ExtResource( 4 )]
+position = Vector2( -32, 208 )
+
+[node name="Heart Creator" parent="Game/Spawners" instance=ExtResource( 18 )]
+position = Vector2( 992, 224 )
+
+[node name="Heart Creator2" parent="Game/Spawners" instance=ExtResource( 18 )]
+position = Vector2( 352, 96 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Mobile Controller" parent="UI" instance=ExtResource( 11 )]
+rect_min_size = Vector2( 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Health Bar" parent="UI" instance=ExtResource( 20 )]
+__meta__ = {
+"_edit_lock_": true
+}

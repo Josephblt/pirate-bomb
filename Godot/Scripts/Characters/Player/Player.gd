@@ -4,6 +4,10 @@ class_name Player
 
 const MAX_LIFE = 3
 
+export var acceleration_camera = 0.25
+export var fast_camera = 15
+export var slow_camera = 5
+
 export var air_acceleration = 0.05
 export var ground_acceleration = 0.05
 
@@ -60,12 +64,23 @@ func _process(_delta):
 			sprite.flip_h = false
 			camera.offset_h = abs(camera.offset_h)
 			collision_shape.scale.x = abs(collision_shape.scale.x)
+	
+	if !DPadUtil.player_zoom_out() and !camera.current:
+		camera.make_current()
 
 
 func _physics_process(_delta):
 	motion.y += gravity
 	motion.y = clamp(motion.y, -INF, terminal_velocity)
 	motion = move_and_slide(motion, Vector2.UP)
+	if motion.y >= terminal_velocity:
+		camera.smoothing_speed += acceleration_camera
+		camera.smoothing_speed = clamp(camera.smoothing_speed, slow_camera, fast_camera)
+	else:
+		camera.smoothing_speed -= acceleration_camera
+		camera.smoothing_speed = clamp(camera.smoothing_speed, slow_camera, fast_camera)
+	if camera.smoothing_speed > 5:
+		print(camera.smoothing_speed)
 
 
 func is_dead():
