@@ -12,7 +12,7 @@ jobs:
     name: Export game to Github
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.4.2
+        uses: actions/checkout@latest
         with:
           fetch-depth: 0
       - name: Create Game Release
